@@ -1,0 +1,304 @@
+<div class="container-fluid bg-primary" class="newclass">
+  <button
+    id="shopeebtn"
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasScrolling"
+    aria-controls="offcanvasScrolling"
+  >
+    <strong><i class="icon icon-echo"></i>MENU</strong>
+  </button>
+  <div class="searchblock">
+    <input
+      class="form-control"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <button class="btn btn-outline-success text-white" type="submit">
+      Search
+    </button>
+  </div>
+  >
+
+  <div
+    class="offcanvas offcanvas-start"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
+    tabindex="-1"
+    id="offcanvasScrolling"
+    aria-labelledby="offcanvasScrollingLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+        <strong>Menu</strong>
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body" class="offcanvasbody">
+      <div class="spacer">
+        <button type="button" class="btn-align" routerLink="/toHome">
+          <strong>HOME</strong>
+        </button>
+      </div>
+      <div class="spacer">
+        <button type="button" class="btn-align" routerLink="/productlist">
+          <strong>PRODUCTS</strong>
+        </button>
+      </div>
+      <div class="spacer">
+        <button class="btn-align" routerLink="/departmentlist">
+          <strong>DEPARTMENT</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="btn1" (click)="redirect()">Logout</button>
+</div>
+
+<div>
+  <div class="text-center" style="padding: 8px; background-color: wheat">
+    <button
+      class="btn btn-dark text-white w-50"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      id="addbtn"
+    >
+      ADDPRODUCT
+    </button>
+  </div>
+  <div class="Tabclass">
+    <table
+      class="table mt-4 table-bordered w-75 justify-content-center rounded rounded-4 overflow-hidden"
+    >
+      <thead>
+        <tr class="text-center">
+          <th scope="col">S.NO</th>
+          <th scope="col">PRODUCT NAME</th>
+          <th scope="col">BRAND</th>
+          <th scope="col">PRICE</th>
+          <th scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let product of productlist; let i = index"
+          class="text-center"
+        >
+          <td>{{ i + 1 }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productBrand }}</td>
+          <td>{{ product.productPrice }}</td>
+
+          <td>
+            <button
+              class="btn btn-info"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal2"
+              (click)="updateProductName(product)"
+            >
+              Update
+            </button>
+            <button
+              class="btn btn-danger mx-4"
+              (click)="deleteProduct(product)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Product List</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <!-- <form [formGroup]="formValue"> -->
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Product Name</label
+              >
+              <input
+                type="text"
+                name="pName"
+                [(ngModel)]="productName"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Brand</label
+              >
+              <input
+                type="text"
+                name="brand"
+                [(ngModel)]="brand"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Price</label
+              >
+              <input
+                type="text"
+                name="quantity"
+                [(ngModel)]="price"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Department</label
+              >
+              <input
+                type="text"
+                name="price"
+                [(ngModel)]="departmentName"
+                [ngModelOptions]="{ standalone: true }"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+            <div class="modal-footer" class="addbtn">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="onproductcreate()"
+                data-bs-dismiss="modal"
+              >
+                Adding
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- update -->
+<div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Product List</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- <form [formGroup]="formValue"> -->
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Product Name</label
+            >
+            <input
+              type="text"
+              name="pName"
+              [(ngModel)]="currentProductName"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Brand</label>
+            <input
+              type="text"
+              name="brand"
+              [(ngModel)]="currentProductBrand"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Price</label>
+            <input
+              type="text"
+              name="quantity"
+              [(ngModel)]="currentProductPrice"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Department</label
+            >
+            <input
+              type="text"
+              name="price"
+              [(ngModel)]="currentProductDeptName"
+              [ngModelOptions]="{ standalone: true }"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+          <div class="modal-footer" class="addbtn">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              (click)="updateProduct()"
+            >
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

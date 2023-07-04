@@ -1,0 +1,62 @@
+.btn1 {
+  width: 100px;
+  height: 35px;
+  border-radius: 6px;
+  border-width: none;
+  padding: 3px;
+  background-color: whitesmoke;
+  margin-top: 25px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: green;
+}
+.newclass {
+  background-color: darkblue;
+  height: 15vh;
+  display: flex;
+
+  justify-content: space-between;
+}
+
+#shopeebtn {
+  background-color: darkblue;
+}
+.offcanvasbody {
+  background-color: whitesmoke;
+  height: 100%;
+}
+.spacer {
+  margin-top: 18px;
+}
+.btn-align {
+  width: 100%;
+  padding: 0px;
+  height: 40px;
+  border-width: 0px;
+  background-color: whitesmoke;
+}
+.btn-align:hover {
+  background-color: blue;
+}
+.Tabclass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: wheat;
+}
+
+#addbtn {
+  height: 10vh;
+}
+.cl {
+  background-color: wheat;
+}
+.searchblock {
+  width: 55%;
+  display: flex;
+  align-content: space-between;
+  justify-content: first baseline;
+  padding: 25px;
+}

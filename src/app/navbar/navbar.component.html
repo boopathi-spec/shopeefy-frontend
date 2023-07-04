@@ -1,0 +1,64 @@
+<div class="container-fluid bg-primary" class="newclass">
+  <button
+    id="shopeebtn"
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasScrolling"
+    aria-controls="offcanvasScrolling"
+  >
+    <strong><i class="icon icon-echo"></i>MENU</strong>
+  </button>
+  <div>
+    <h2 style="padding: 10px" class="text-white">
+      <img
+        src="/assets/images/images.jpg"
+        style="height: 82px; border: navy; border-radius: 10px"
+      />WELCOME TO SHOPEE
+    </h2>
+  </div>
+  <div
+    class="offcanvas offcanvas-start"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
+    tabindex="-1"
+    id="offcanvasScrolling"
+    aria-labelledby="offcanvasScrollingLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+        <strong>Menu</strong>
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body" class="offcanvasbody">
+      <div class="spacer">
+        <button type="button" class="btn-align" routerLink="/toHome">
+          <strong>HOME</strong>
+        </button>
+      </div>
+      <div class="spacer">
+        <button type="button" class="btn-align" routerLink="/productlist">
+          <strong>PRODUCTS</strong>
+        </button>
+      </div>
+      <div class="spacer">
+        <button class="btn-align" routerLink="/departmentlist">
+          <strong>DEPARTMENT</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="btn1" (click)="redirect()">Logout</button>
+</div>
+<div class="container-fluid">
+  <img
+    src="/assets/images/shubham-dhage-mjl0yIdSi18-unsplash.jpg"
+    style="width: 101%; margin-left: 0"
+  />
+</div>

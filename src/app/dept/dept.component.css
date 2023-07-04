@@ -1,0 +1,77 @@
+.deptLayout {
+  border-color: black;
+  outline-width: 4px;
+  background-color: darkblue;
+}
+.dept {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.btn1 {
+  width: 100px;
+  height: 35px;
+  border-radius: 6px;
+  border-width: none;
+  padding: 3px;
+  background-color: whitesmoke;
+  margin-top: 25px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.newclass {
+  background-color: darkblue;
+  height: 15vh;
+  display: flex;
+
+  justify-content: space-between;
+}
+
+#shopeebtn {
+  background-color: darkblue;
+}
+.offcanvasbody {
+  background-color: whitesmoke;
+  height: 100%;
+}
+.spacer {
+  margin-top: 18px;
+}
+.btn-align {
+  width: 100%;
+  padding: 0px;
+  height: 40px;
+  border-width: 0px;
+  background-color: whitesmoke;
+}
+.btn-align:hover {
+  background-color: blue;
+}
+.Tabclass {
+  background-color: blue;
+  width: 10%;
+}
+
+.linkclass {
+  display: flex;
+  justify-content: end;
+  width: 30%;
+  background-color: aqua;
+  height: 60vh;
+}
+
+.table {
+  border-radius: 40px !important;
+}
+#tablebutton {
+  border: none;
+  width: 100px;
+}
+.searchblock {
+  width: 55%;
+  display: flex;
+  align-content: space-between;
+  justify-content: first baseline;
+  padding: 25px;
+}

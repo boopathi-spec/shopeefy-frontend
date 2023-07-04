@@ -1,0 +1,113 @@
+<div class="container-fluid bg-primary" class="newclass">
+  <button
+    id="shopeebtn"
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasScrolling"
+    aria-controls="offcanvasScrolling"
+  >
+    <strong><i class="icon icon-echo"></i>MENU</strong>
+  </button>
+  <div class="searchblock">
+    <input
+      class="form-control"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+    />
+    <button class="btn btn-outline-success text-white" type="submit">
+      Search
+    </button>
+  </div>
+
+  <div
+    class="offcanvas offcanvas-start"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
+    tabindex="-1"
+    id="offcanvasScrolling"
+    aria-labelledby="offcanvasScrollingLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+        <strong>Menu</strong>
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body" class="offcanvasbody">
+      <div class="spacer">
+        <button type="button" class="btn-align" routerLink="/toHome">
+          <strong>HOME</strong>
+        </button>
+      </div>
+      <div class="spacer">
+        <button type="button" class="btn-align" routerLink="/productlist">
+          <strong>PRODUCTS</strong>
+        </button>
+      </div>
+      <div class="spacer">
+        <button class="btn-align" routerLink="/departmentlist">
+          <strong>DEPARTMENT</strong>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="btn1" (click)="redirect()">Logout</button>
+</div>
+<br /><br />
+<div class="container-fluid">
+  <hr />
+  <div class="row">
+    <div class="dept col-6">
+      <table class="table table-bordered table-hover table-responsive-md">
+        <thead class="table-dark">
+          <tr>
+            <th class="text-center">S.NO</th>
+            <th class="text-center">DEPARTMENT NAME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dept of deptlist; let i = index">
+            <td class="bg-primary text-white">{{ i + 1 }}</td>
+            <td class="bg-primary">
+              <button
+                class="btn bg-primary text-white w-100"
+                id="tablebutton"
+                (click)="showProduct(dept)"
+              >
+                {{ dept.deptName }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="product col-6">
+      <table class="table table-bordered" [hidden]="product1">
+        <caption>
+          PRODUCTS AVAILABLE
+        </caption>
+        <thead class="table-dark">
+          <tr>
+            <th class="text-center">S.NO</th>
+            <th class="text-center">PRODUCT NAME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of prolist; let i = index">
+            <td class="text-center">{{ i + 1 }}</td>
+            <td class="text-center">{{ product.productName }}</td>
+          </tr>
+          <!-- Product data here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
